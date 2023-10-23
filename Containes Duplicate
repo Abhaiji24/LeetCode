@@ -1,0 +1,16 @@
+''' https://leetcode.com/problems/contains-duplicate/description/  '''
+
+class Solution(object):
+    def containsDuplicate(self, nums):
+        
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        
+        seen = set()
+        for num in nums:
+            if num in seen:
+                return True  # If the element is already in the set, it's a dup.
+            seen.add(num)  # Otherwise, add it to the set
+        return False  
