@@ -1,0 +1,23 @@
+# Leetcode prob : https://leetcode.com/problems/group-anagrams/submissions/
+
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        anagrams = {}
+        
+        for word in strs:
+            # Sort the characters in the word to identify its anagram group
+            sorted_word = ''.join(sorted(word))
+            
+            # If the sorted word is not in the dictionary, add it with an empty list
+            if sorted_word not in anagrams:
+                anagrams[sorted_word] = []
+            
+            # Append the original word to its corresponding anagram group
+            anagrams[sorted_word].append(word)
+        
+        # Return the values (lists of anagrams) from the dictionary
+        return list(anagrams.values())
